@@ -27,7 +27,6 @@ public class SecurityConfiguration {
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
     private final UserService userService;
 
-    // Configura e define a cadeia de filtros de segurança
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable)
@@ -45,10 +44,8 @@ public class SecurityConfiguration {
     public AuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
 
-        // Define o serviço que a ser utilizado para encontrar o usuário
-        // para a autenticação.
         authProvider.setUserDetailsService(userService.userDetailsService());
-        // Classe responsável por criptografar a senha do usuário.
+
         authProvider.setPasswordEncoder(passwordEncoder());
 
         return authProvider;
