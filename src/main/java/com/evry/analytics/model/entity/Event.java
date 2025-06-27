@@ -3,9 +3,6 @@ package com.evry.analytics.model.entity;
 import lombok.Getter;
 import lombok.Setter;
 
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Parameter;
-
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -32,14 +29,6 @@ public class Event {
     private String deviceType;
 
     @GeneratedValue
-    @GenericGenerator(
-            name = "UUID",
-            strategy = "org.hibernate.id.UUIDGenerator",
-            parameters = {
-                @Parameter(
-                        name = "uuid_gen_strategy_class",
-                        value = "org.hibernate.id.uuid.CustomVersionOneStrategy")
-            })
     @Id
     private UUID id;
 
