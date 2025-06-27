@@ -33,9 +33,13 @@ public class SecurityConfiguration {
                 .sessionManagement(manager -> manager.sessionCreationPolicy(STATELESS))
                 .authenticationProvider(authenticationProvider())
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
-                .authorizeHttpRequests()
-                .antMatchers("/v1/auth/**").permitAll()
-                .anyRequest().authenticated();
+                .authorizeHttpRequests(
+                        (authorize) ->
+                                authorize
+                                    .requestMatchers("/v1/auth/**")
+                                    .permitAll()
+                                    .anyRequest().authenticated()
+                );
 
         return http.build();
     }
