@@ -27,7 +27,7 @@ public class EventDTO {
         createDate = event.getCreateDate();
         dateTime = event.getDateTime();
         deviceType = event.getDeviceType();
-        id = event.getId().toString();
+        id = event.getUuid().toString();
         metadata = event.getMetadata();
         pageTitle = event.getPageTitle();
         properties = event.getProperties();

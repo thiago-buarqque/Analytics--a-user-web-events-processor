@@ -10,8 +10,6 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 
-import jakarta.validation.constraints.NotNull;
-
 @EqualsAndHashCode
 @Getter
 @JSONSerializable
@@ -23,7 +21,7 @@ public class VisitorDTO {
     public VisitorDTO(Visitor visitor) {
         if (visitor != null) {
             createDate = visitor.getCreateDate();
-            id = visitor.getId();
+            uuid = String.valueOf(visitor.getUuid());
             userId = visitor.getUserId();
         }
     }
@@ -31,8 +29,7 @@ public class VisitorDTO {
     @JSONField private LocalDateTime createDate;
 
     @JSONField
-    @NotNull(message = "Visitor id must be provided.")
-    private String id;
+    private String uuid;
 
     @JSONField private String userId;
 }

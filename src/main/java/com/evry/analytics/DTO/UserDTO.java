@@ -29,7 +29,7 @@ public class UserDTO {
             email = user.getEmail();
             firstName = user.getFirstName();
             gender = user.getGender();
-            id = user.getId().toString();
+            uuid = String.valueOf(user.getUuid());
             lastName = user.getLastName();
             middleName = user.getMiddleName();
             phone = user.getPhone();
@@ -37,7 +37,7 @@ public class UserDTO {
         }
     }
 
-    @JSONField private String id;
+    @JSONField private String uuid;
 
     @JSONField private String address;
 

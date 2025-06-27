@@ -69,18 +69,18 @@ public class StreamTest {
         User user1 = new User();
         user1.setFirstName("James");
         user1.setLastName("Whatever");
-        user1.setId(UUID.fromString("351deb70-0247-476e-a740-ec2cd3bbc658"));
+        user1.setUuid(UUID.fromString("351deb70-0247-476e-a740-ec2cd3bbc658"));
 
         User user2 = new User();
         user2.setFirstName("John");
         user2.setLastName("Whatever");
-        user2.setId(UUID.fromString("951deb70-0612-271e-a180-ec2cd3bbc659"));
+        user2.setUuid(UUID.fromString("951deb70-0612-271e-a180-ec2cd3bbc659"));
 
         List<User> list = Arrays.asList(user1, user2);
 
         String result = list.stream()
                 .reduce("",
-                    (accumulator, user) -> accumulator + user.getId().toString(),
+                    (accumulator, user) -> accumulator + user.getUuid().toString(),
                     String::concat
                 );
 

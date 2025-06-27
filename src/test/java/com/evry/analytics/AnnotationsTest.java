@@ -19,7 +19,7 @@ class AnnotationsTest {
         User user = new User();
         user.setFirstName("James");
         user.setLastName("Whatever");
-        user.setId(UUID.randomUUID());
+        user.setUuid(UUID.randomUUID());
 
         UserDTO userDTO = new UserDTO(user);
 
@@ -37,7 +37,7 @@ class AnnotationsTest {
         User user = new User();
         user.setFirstName("James");
         user.setLastName("Whatever");
-        user.setId(UUID.fromString("351deb70-0247-476e-a740-ec2cd3bbc658"));
+        user.setUuid(UUID.fromString("351deb70-0247-476e-a740-ec2cd3bbc658"));
 
         UserDTO userDTO = new UserDTO(user);
 

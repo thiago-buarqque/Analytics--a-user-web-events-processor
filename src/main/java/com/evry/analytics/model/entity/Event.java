@@ -11,6 +11,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 @Entity
 @Getter
@@ -30,7 +32,8 @@ public class Event {
 
     @GeneratedValue
     @Id
-    private UUID id;
+    @JdbcTypeCode(SqlTypes.VARCHAR)
+    private UUID uuid;
 
     @NotNull private String metadata;
 
