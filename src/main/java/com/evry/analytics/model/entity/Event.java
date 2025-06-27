@@ -5,7 +5,6 @@ import lombok.Setter;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
-import org.hibernate.annotations.Type;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -42,7 +41,6 @@ public class Event {
                         value = "org.hibernate.id.uuid.CustomVersionOneStrategy")
             })
     @Id
-    @Type(type = "org.hibernate.type.UUIDCharType")
     private UUID id;
 
     @NotNull private String metadata;

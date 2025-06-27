@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Type;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -42,7 +41,6 @@ public class User implements UserDetails {
     @GeneratedValue
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     @Id
-    @Type(type = "org.hibernate.type.UUIDCharType")
     private UUID id;
 
     @NotNull private String lastName;
