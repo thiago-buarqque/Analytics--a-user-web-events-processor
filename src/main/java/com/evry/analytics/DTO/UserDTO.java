@@ -1,9 +1,8 @@
 package com.evry.analytics.DTO;
 
-import com.evry.analytics.model.entity.User;
-
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
@@ -13,25 +12,9 @@ import jakarta.validation.constraints.NotNull;
 
 @EqualsAndHashCode
 @Getter
+@NoArgsConstructor
 @Setter
 public class UserDTO {
-
-    public UserDTO() {}
-
-    public UserDTO(User user) {
-        if (user != null) {
-            address = user.getAddress();
-            birthday = user.getBirthday();
-            email = user.getEmail();
-            firstName = user.getFirstName();
-            gender = user.getGender();
-            uuid = String.valueOf(user.getUuid());
-            lastName = user.getLastName();
-            middleName = user.getMiddleName();
-            phone = user.getPhone();
-            role = user.getRole();
-        }
-    }
 
     private String uuid;
 

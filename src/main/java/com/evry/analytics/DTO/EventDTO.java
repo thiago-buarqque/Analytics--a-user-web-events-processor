@@ -1,9 +1,8 @@
 package com.evry.analytics.DTO;
 
-import com.evry.analytics.model.entity.Event;
-
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
@@ -13,27 +12,9 @@ import jakarta.validation.constraints.NotNull;
 
 @EqualsAndHashCode
 @Getter
+@NoArgsConstructor
 @Setter
 public class EventDTO {
-
-    public EventDTO() {}
-
-    public EventDTO(Event event) {
-        browserName = event.getBrowserName();
-        canonicalUrl = event.getCanonicalUrl();
-        createDate = event.getCreateDate();
-        dateTime = event.getDateTime();
-        deviceType = event.getDeviceType();
-        id = event.getUuid().toString();
-        metadata = event.getMetadata();
-        pageTitle = event.getPageTitle();
-        properties = event.getProperties();
-        referrer = event.getReferrer();
-        sessionId = event.getSessionId();
-        timezoneOffset = event.getTimezoneOffset();
-        type = event.getType();
-        visitorId = event.getVisitorId();
-    }
 
     private String browserName;
 

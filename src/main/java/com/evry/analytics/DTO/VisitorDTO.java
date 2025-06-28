@@ -1,27 +1,17 @@
 package com.evry.analytics.DTO;
 
-import com.evry.analytics.model.entity.Visitor;
-
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
 
 @EqualsAndHashCode
 @Getter
+@NoArgsConstructor
 @Setter
 public class VisitorDTO {
-
-    public VisitorDTO() {}
-
-    public VisitorDTO(Visitor visitor) {
-        if (visitor != null) {
-            createDate = visitor.getCreateDate();
-            uuid = String.valueOf(visitor.getUuid());
-            userId = visitor.getUserId();
-        }
-    }
 
     private LocalDateTime createDate;
 
