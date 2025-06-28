@@ -1,7 +1,5 @@
 package com.evry.analytics.DTO;
 
-import com.evry.analytics.model.annotation.JSONField;
-import com.evry.analytics.model.annotation.JSONSerializable;
 import com.evry.analytics.model.entity.Event;
 
 import lombok.EqualsAndHashCode;
@@ -15,7 +13,6 @@ import jakarta.validation.constraints.NotNull;
 
 @EqualsAndHashCode
 @Getter
-@JSONSerializable
 @Setter
 public class EventDTO {
 
@@ -38,35 +35,33 @@ public class EventDTO {
         visitorId = event.getVisitorId();
     }
 
-    @JSONField private String browserName;
+    private String browserName;
 
-    @JSONField @NotNull private String canonicalUrl;
+    @NotNull private String canonicalUrl;
 
-    @JSONField private LocalDateTime createDate;
+    private LocalDateTime createDate;
 
-    @JSONField private LocalDateTime dateTime;
+    private LocalDateTime dateTime;
 
-    @JSONField private String deviceType;
+    private String deviceType;
 
-    @JSONField private String id;
+    private String id;
 
-    @JSONField
     @NotEmpty(message = "Metadata must be provided.")
     private String metadata;
 
-    @JSONField private String pageTitle;
+    private String pageTitle;
 
-    @JSONField private String properties;
+    private String properties;
 
-    @JSONField private String referrer;
+    private String referrer;
 
-    @JSONField @NotNull private String sessionId;
+    @NotNull private String sessionId;
 
-    @JSONField @NotNull private String timezoneOffset;
+    @NotNull private String timezoneOffset;
 
-    @JSONField
     @NotEmpty(message = "Event type must be provided.")
     private String type;
 
-    @JSONField @NotNull private String visitorId;
+    @NotNull private String visitorId;
 }

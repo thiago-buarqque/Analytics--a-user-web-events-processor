@@ -1,7 +1,5 @@
 package com.evry.analytics.DTO;
 
-import com.evry.analytics.model.annotation.JSONField;
-import com.evry.analytics.model.annotation.JSONSerializable;
 import com.evry.analytics.model.entity.Visitor;
 
 import lombok.EqualsAndHashCode;
@@ -12,7 +10,6 @@ import java.time.LocalDateTime;
 
 @EqualsAndHashCode
 @Getter
-@JSONSerializable
 @Setter
 public class VisitorDTO {
 
@@ -26,10 +23,9 @@ public class VisitorDTO {
         }
     }
 
-    @JSONField private LocalDateTime createDate;
+    private LocalDateTime createDate;
 
-    @JSONField
     private String uuid;
 
-    @JSONField private String userId;
+    private String userId;
 }
