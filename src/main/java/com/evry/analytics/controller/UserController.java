@@ -23,7 +23,7 @@ public class UserController extends BaseController {
     public ResponseEntity<UserDTO> getUserByEmail(@PathVariable String email) {
         Optional<User> userOptional = userService.getUserByEmail(email);
 
-        if(!userOptional.isPresent()) {
+        if(userOptional.isEmpty()) {
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
 

@@ -15,6 +15,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
 import java.util.UUID;
 
 @AllArgsConstructor
@@ -27,19 +28,23 @@ public class AuthorizationServiceImpl implements AuthorizationService {
     private final UserRepository userRepository;
 
     public JwtAuthenticationResponse signup(User user) {
-        if (!userRepository.findByEmail(user.getEmail()).isPresent()) {
-            user.setPassword(passwordEncoder.encode(user.getPassword()));
+        Optional<User> userOptional = userRepository.findByEmail(
+                user.getEmail());
 
-            if(user.getRole() == null) {
-                user.setRole(UserRole.ROLE_DEFAULT.getName());
-            }
-
-            userRepository.save(user);
-
-            return getJwtAuthenticationResponse(user);
-        } else {
-            throw new SecurityException("Email address is already in use.", HttpStatus.UNPROCESSABLE_ENTITY);
+        if (userOptional.isPresent()) {
+            throw new SecurityException(
+                "Email address is already in use.", HttpStatus.UNPROCESSABLE_ENTITY);
         }
+
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+
+        if(user.getRole() == null) {
+            user.setRole(UserRole.ROLE_DEFAULT.getName());
+        }
+
+        userRepository.save(user);
+
+        return getJwtAuthenticationResponse(user);
     }
 
     public JwtAuthenticationResponse signIn(String email, String password) {
