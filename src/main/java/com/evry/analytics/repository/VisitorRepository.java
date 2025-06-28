@@ -7,8 +7,10 @@ import org.springframework.stereotype.Repository;
 
 import jakarta.transaction.Transactional;
 
+import java.util.UUID;
+
 @Repository
 @Transactional
-public interface VisitorRepository extends JpaRepository<Visitor, String> {
+public interface VisitorRepository extends JpaRepository<Visitor, UUID> {
     public void deleteByUserId(String userId);
 }
