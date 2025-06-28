@@ -6,7 +6,6 @@ import com.evry.analytics.service.EventService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lombok.AllArgsConstructor;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,7 +26,6 @@ import jakarta.validation.Valid;
 public class EventController extends BaseController {
 
     @GetMapping("/{visitorId}")
-    @Secured({"ROLE_ADMIN"})
     public List<EventDTO> fetchAllUserEvents(
             @PathVariable String visitorId,
             @RequestParam(required = false) LocalDateTime dateEnd,
