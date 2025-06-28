@@ -3,13 +3,11 @@ package com.evry.analytics.service.impl;
 import com.evry.analytics.model.entity.User;
 import com.evry.analytics.repository.UserRepository;
 
-import com.evry.analytics.security.exception.SecurityException;
 import com.evry.analytics.service.AuthorizationService;
 import com.evry.analytics.model.enums.UserRole;
 import com.evry.analytics.service.JwtService;
 import com.evry.analytics.model.response.JwtAuthenticationResponse;
 import lombok.AllArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -32,8 +30,8 @@ public class AuthorizationServiceImpl implements AuthorizationService {
                 user.getEmail());
 
         if (userOptional.isPresent()) {
-            throw new SecurityException(
-                "Email address is already in use.", HttpStatus.UNPROCESSABLE_ENTITY);
+            throw new RuntimeException(
+                "Email address is already in use");
         }
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
@@ -52,8 +50,8 @@ public class AuthorizationServiceImpl implements AuthorizationService {
 
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() ->
-                        new SecurityException(
-                                "Invalid email/password.", HttpStatus.UNPROCESSABLE_ENTITY
+                        new RuntimeException(
+                                "Invalid e-mail or password"
                         ));
 
         return getJwtAuthenticationResponse(user);
