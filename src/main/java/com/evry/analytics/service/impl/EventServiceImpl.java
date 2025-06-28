@@ -6,7 +6,7 @@ import com.evry.analytics.repository.EventRepository;
 import com.evry.analytics.service.EventService;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.List;
 
 @Service
@@ -21,10 +21,10 @@ public class EventServiceImpl implements EventService {
     }
 
     public List<Event> getVisitorEvents(
-            LocalDateTime dateEnd, LocalDateTime dateStart, String visitorId) {
+            OffsetDateTime dateEnd, OffsetDateTime dateStart, String visitorId) {
 
         if (dateEnd == null) {
-            dateEnd = LocalDateTime.now();
+            dateEnd = OffsetDateTime.now();
         }
 
         if (dateStart == null) {

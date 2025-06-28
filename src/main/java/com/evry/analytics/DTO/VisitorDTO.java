@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 @EqualsAndHashCode
 @Getter
@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @Setter
 public class VisitorDTO {
 
-    private LocalDateTime createDate;
+    private OffsetDateTime createDate;
 
     private String uuid;
 

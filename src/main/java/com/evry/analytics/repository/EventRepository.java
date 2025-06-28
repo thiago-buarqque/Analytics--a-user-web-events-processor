@@ -5,7 +5,7 @@ import com.evry.analytics.model.entity.Event;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -13,5 +13,5 @@ import java.util.UUID;
 public interface EventRepository extends CustomEventRepository, JpaRepository<Event, UUID> {
 
     List<Event> findEventsByDateTimeBetweenAndVisitorId(
-            LocalDateTime date1, LocalDateTime date2, String visitorId);
+            OffsetDateTime date1, OffsetDateTime date2, String visitorId);
 }

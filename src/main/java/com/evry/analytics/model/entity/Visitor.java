@@ -4,7 +4,7 @@ import jakarta.persistence.GeneratedValue;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.UUID;
 
 import jakarta.persistence.Entity;
@@ -20,7 +20,7 @@ import org.springframework.lang.Nullable;
 @Table
 public class Visitor {
 
-    private LocalDateTime createDate;
+    private OffsetDateTime createDate;
 
     @GeneratedValue
     @Id

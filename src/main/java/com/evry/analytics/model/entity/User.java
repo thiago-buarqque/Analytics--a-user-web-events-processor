@@ -10,7 +10,8 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.UUID;
@@ -31,7 +32,7 @@ public class User implements UserDetails {
 
     @NotNull private LocalDate birthday;
 
-    private LocalDateTime createDate;
+    @NotNull private OffsetDateTime createDate;
 
     @NotNull private String email;
 

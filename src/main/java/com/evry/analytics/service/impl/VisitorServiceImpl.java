@@ -6,7 +6,7 @@ import com.evry.analytics.repository.VisitorRepository;
 import com.evry.analytics.service.VisitorService;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -18,7 +18,7 @@ public class VisitorServiceImpl implements VisitorService {
     }
 
     public Visitor addVisitor(Visitor visitor) {
-        visitor.setCreateDate(LocalDateTime.now());
+        visitor.setCreateDate(OffsetDateTime.now());
 
         return visitorRepository.save(visitor);
     }

@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -20,9 +20,9 @@ public class EventDTO {
 
     @NotNull private String canonicalUrl;
 
-    private LocalDateTime createDate;
+    private OffsetDateTime createDate;
 
-    private LocalDateTime dateTime;
+    private OffsetDateTime dateTime;
 
     private String deviceType;
 

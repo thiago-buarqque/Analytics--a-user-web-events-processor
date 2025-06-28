@@ -3,7 +3,7 @@ package com.evry.analytics.model.entity;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.UUID;
 
 import jakarta.persistence.Entity;
@@ -24,9 +24,9 @@ public class Event {
 
     @NotNull private String canonicalUrl;
 
-    private LocalDateTime createDate;
+    private OffsetDateTime createDate;
 
-    private LocalDateTime dateTime;
+    private OffsetDateTime dateTime;
 
     private String deviceType;
 

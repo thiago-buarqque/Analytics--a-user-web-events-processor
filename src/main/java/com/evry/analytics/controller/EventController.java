@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -28,8 +28,8 @@ public class EventController extends BaseController {
     @GetMapping("/{visitorId}")
     public List<EventDTO> fetchAllUserEvents(
             @PathVariable String visitorId,
-            @RequestParam(required = false) LocalDateTime dateEnd,
-            @RequestParam(required = false) LocalDateTime dateStart) {
+            @RequestParam(required = false) OffsetDateTime dateEnd,
+            @RequestParam(required = false) OffsetDateTime dateStart) {
 
         List<Event> events = eventService.getVisitorEvents(dateEnd, dateStart, visitorId);
 
@@ -41,7 +41,7 @@ public class EventController extends BaseController {
     @PostMapping("/register")
     public EventDTO registerEvent(@Valid @RequestBody EventDTO eventDTO) {
         if (eventDTO.getDateTime() == null) {
-            eventDTO.setDateTime(LocalDateTime.now());
+            eventDTO.setDateTime(OffsetDateTime.now());
         }
 
         return objectMapper.convertValue(
