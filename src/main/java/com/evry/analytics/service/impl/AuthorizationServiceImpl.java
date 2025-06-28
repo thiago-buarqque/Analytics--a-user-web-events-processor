@@ -35,10 +35,6 @@ public class AuthorizationServiceImpl implements AuthorizationService {
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
-        if(user.getRole() == null) {
-            user.setRole(UserRole.ROLE_DEFAULT.getName());
-        }
-
         userRepository.save(user);
 
         return getJwtAuthenticationResponse(user);

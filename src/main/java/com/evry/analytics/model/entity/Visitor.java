@@ -1,6 +1,8 @@
 package com.evry.analytics.model.entity;
 
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.OneToMany;
+import jakarta.validation.Constraint;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -26,7 +28,10 @@ public class Visitor {
     @Id
     @JdbcTypeCode(SqlTypes.VARCHAR)
     private UUID uuid;
-
+    /* TODO: perguntar no StackOverflow sobre a inicalização do esquema do
+       banco de dados com Spring. Para que usar as anotações do hibernate se
+       terei que criar um SQL e definir as relações?
+    */
     @Nullable
-    private String userId;
+    private Long userId;
 }
