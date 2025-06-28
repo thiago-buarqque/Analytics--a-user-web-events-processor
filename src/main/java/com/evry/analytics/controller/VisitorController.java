@@ -36,7 +36,7 @@ public class VisitorController extends BaseController {
         Optional<Visitor> visitorOptional = visitorService.getVisitorById(visitorId);
 
         return visitorOptional
-                .map(visitor -> new ResponseEntity<>(new VisitorDTO(visitor), HttpStatus.OK))
+                .map(visitor -> new ResponseEntity<>(objectMapper.convertValue(visitor, VisitorDTO.class), HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(null, HttpStatus.NOT_FOUND));
     }
 

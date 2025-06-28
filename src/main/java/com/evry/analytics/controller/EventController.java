@@ -35,7 +35,9 @@ public class EventController extends BaseController {
 
         List<Event> events = eventService.getVisitorEvents(dateEnd, dateStart, visitorId);
 
-        return events.stream().map(EventDTO::new).collect(Collectors.toList());
+        return events.stream().map(
+                (event -> objectMapper.convertValue(event, EventDTO.class)
+            )).collect(Collectors.toList());
     }
 
     @PostMapping("/register")
