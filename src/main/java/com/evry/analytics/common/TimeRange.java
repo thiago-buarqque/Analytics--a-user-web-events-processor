@@ -1,17 +1,12 @@
 package com.evry.analytics.common;
 
+import lombok.Getter;
+
 import java.util.HashMap;
 import java.util.Map;
 
+@Getter
 public class TimeRange {
-
-    public int getValue() {
-        return value;
-    }
-
-    public String getKey() {
-        return key;
-    }
 
     public TimeRange(String key, int value) {
         this.key = key;
