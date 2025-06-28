@@ -14,7 +14,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
-import java.util.UUID;
 
 @AllArgsConstructor
 @Service
@@ -61,10 +60,6 @@ public class AuthorizationServiceImpl implements AuthorizationService {
         String token = jwtService.generateToken(user);
 
         return new JwtAuthenticationResponse(token);
-    }
-
-    private UUID getUUIDFromString(String userId) {
-        return UUID.fromString(userId);
     }
 
 }
