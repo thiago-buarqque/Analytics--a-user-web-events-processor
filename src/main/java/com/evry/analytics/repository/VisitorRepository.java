@@ -12,5 +12,5 @@ import java.util.UUID;
 @Repository
 @Transactional
 public interface VisitorRepository extends JpaRepository<Visitor, UUID> {
-    public void deleteByUserId(String userId);
+    public void deleteByUserId(Long userId);
 }

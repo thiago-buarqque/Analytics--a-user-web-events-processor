@@ -1,6 +1,8 @@
 package com.evry.analytics.model.entity;
 
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.OneToMany;
+import jakarta.validation.Constraint;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -28,5 +30,6 @@ public class Visitor {
     private UUID uuid;
 
     @Nullable
-    private String userId;
+    private Long userId;
+
 }

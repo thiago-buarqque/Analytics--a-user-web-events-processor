@@ -18,8 +18,6 @@ public class UserDTO {
 
     private String uuid;
 
-    private String address;
-
     @NotNull(message = "User birthday must be provided.")
     private LocalDate birthday;
 
@@ -36,7 +34,4 @@ public class UserDTO {
 
     private String middleName;
 
-    private String phone;
-
-    private String role;
 }
