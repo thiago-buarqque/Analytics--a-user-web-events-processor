@@ -5,7 +5,7 @@ import org.springframework.http.HttpStatus;
 
 import java.io.Serial;
 
-public class SecurityException extends RuntimeException {
+public class HttpException extends RuntimeException {
 
     @Serial
     private static final long serialVersionUID = 1L;
@@ -13,7 +13,7 @@ public class SecurityException extends RuntimeException {
     @Getter
     private final HttpStatus httpStatus;
 
-    public SecurityException(String message, HttpStatus httpStatus) {
+    public HttpException(String message, HttpStatus httpStatus) {
         super(message);
 
         this.httpStatus = httpStatus;
